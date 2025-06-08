@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Administradore extends Model
+class Administrador extends Model
 {
-    protected $table = 'administradores';
+    protected $table = 'administradors';
     protected $primaryKey = 'id';
     public $incrementing = false;
-    protected $keyType = 'int';
+    //protected $keyType = 'int';
     protected $fillable = ['id', 'area_responsabilidad'];
 
     public function usuario()

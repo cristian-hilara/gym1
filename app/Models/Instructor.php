@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Instructore extends Model
+class Instructor extends Model
 {
-    protected $table = 'instructores';
+    protected $table = 'instructors';
     protected $primaryKey = 'id';
     public $incrementing = false;
-    protected $keyType = 'int';
+    //protected $keyType = 'int';
     protected $fillable = ['id', 'especialidad', 'experiencia'];
 
     public function usuario()

@@ -1,4 +1,4 @@
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark navbar-green">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="{{ route('panel')}}">Sistema StartGym</a>
             <!-- Sidebar Toggle-->

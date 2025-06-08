@@ -5,6 +5,8 @@ use App\Models\Usuario;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UsuarioSeeder extends Seeder
 {
@@ -13,13 +15,23 @@ class UsuarioSeeder extends Seeder
      */
     public function run(): void
     {
-        Usuario::create([
+        $user= Usuario::create([
             'nombre' => 'Admin',
-            'apellido' => 'Principal',
+            'apellido'=>'Hilara',
             'email' => 'admin@ejemplo.com',
             'password' => Hash::make('tucontraseña'),
-            'rol' => 'ADMINISTRADOR',
+            'rol' => 'ADMINISTRADOR', //Esto soluciona el error
             // Los demás campos pueden quedarse sin poner porque son nullable o tienen valor por defecto
+            
         ]);
+
+        $rol=Role::create(['name'=>'ADMINISTRADOR']);
+        $permisos= Permission::pluck('id','id')->all();
+        $rol->syncPermissions($permisos);
+        
+        //$user= Usuario::find(2);
+        $user->assignRole('ADMINISTRADOR');
+
+                
     }
 }

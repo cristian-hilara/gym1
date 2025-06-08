@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class Usuario extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     protected $table = 'usuarios';
 
@@ -29,7 +31,7 @@ class Usuario extends Authenticatable
         'password',
     ];
 
-    public $timestamps = false;
+    public $timestamps = false; // Cambia a true si usas created_at y updated_at
 
     /**
      * Sobrescribir el campo de contraseña para autenticación.
@@ -44,7 +46,7 @@ class Usuario extends Authenticatable
      */
     public function administrador()
     {
-        return $this->hasOne(Administradore::class, 'id', 'id');
+        return $this->hasOne(Administrador::class, 'id', 'id');
     }
 
     /**
@@ -60,7 +62,7 @@ class Usuario extends Authenticatable
      */
     public function instructor()
     {
-        return $this->hasOne(Instructore::class, 'id', 'id');
+        return $this->hasOne(Instructor::class, 'id', 'id');
     }
 
     /**

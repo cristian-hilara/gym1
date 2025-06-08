@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\loginController;
 
 use App\Http\Controllers\Auth\homeController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 //});
 
 //Route::view('/panel', 'panel.index')-> name('panel');
+
+Route::resource('usuarios', App\Http\Controllers\UsuarioController::class)->middleware('auth');
+Route::resource('roles', App\Http\Controllers\roleController::class);
 
 
 Route::get('/401', function(){

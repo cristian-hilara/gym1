@@ -51,14 +51,20 @@
                                 </nav>
                             </div-->
                             <div class="sb-sidenav-menu-heading">Modulos</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            @can('ver-usuario')
+                            <a class="nav-link" href="{{route('usuarios.index')}}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                                 Usuarios
                             </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                            @endcan
+
+                            @can('ver-role')
+                            <a class="nav-link" href="{{route('roles.index')}}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-person-circle-plus"></i></div>
+                                Roles
                             </a>
+                            @endcan
+
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

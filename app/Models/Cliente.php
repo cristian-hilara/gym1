@@ -11,7 +11,7 @@ class Cliente extends Model
     protected $table = 'clientes';
     protected $primaryKey = 'id';
     public $incrementing = false;
-    protected $keyType = 'int';
+    //protected $keyType = 'int';
     protected $fillable = ['id', 'fecha_nacimiento', 'estado_membresia'];
 
     public function usuario()
